@@ -3,7 +3,7 @@ import Aria2 from "aria2-lib";
 
 export const Aria2Context = createContext();
 
-export const useSomeContext = () => useContext(aria2Context);
+export const useAria2 = () => useContext(Aria2Context);
 
 export const Aria2Provider = ({ children }) => {
   const [state, setState] = useState({
