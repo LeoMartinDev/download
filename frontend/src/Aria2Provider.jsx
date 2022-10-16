@@ -22,14 +22,14 @@ export const Aria2Provider = ({ children }) => {
 
         await aria2.open();
 
-        setState({ aria2 });
+        setState((state) => ({ ...state, aria2 }));
       } catch (error) {
         console.error(error);
-        setState({ error });
+        setState((state) => ({ ...state, error }));
       }
     };
 
-    initializeAria2();
+    // initializeAria2();
 
     return () => {
       if (state.aria2) {

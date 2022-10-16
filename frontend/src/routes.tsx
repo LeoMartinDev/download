@@ -1,25 +1,31 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import {MdOutlineDownloading, MdSettings} from "react-icons/md";
+import {IconType} from "react-icons";
 
-import { NavigationItem } from "./layout/Navigation.tsx";
 import Home from './pages/Home.jsx';
+import {NavigationItem} from "./layout/Navigation";
 
 export type RouterItem = {
     path: string;
     element: React.ReactNode;
-    icon: React.ReactNode;
-    label?: string;
-};
+} & NavigationItem;
 
 const router: RouterItem[] = [
     {
         path: "/",
-        element: <Home />,
-        icon: <FontAwesomeIcon icon={faGear} />,
+        element: <Home/>,
+        icon: MdOutlineDownloading,
         label: 'Done',
+    },
+    {
+        path: "/settings",
+        element: <div>settings</div>,
+        icon: MdSettings,
+        label: 'Settings',
+        placement: 'end',
     },
 ];
 
-export const routes = router.map(({ path, element }) => ({ path, element }));
+export const routes = router.map(({path, element}) => ({path, element}));
 
-export const navigationItems = router.map(({ path, icon, label }) => ({ path, icon, label }));
+export const navigationItems = router.map(({path, icon, label, placement}) => ({path, icon, label, placement}));
